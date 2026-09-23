@@ -6,8 +6,9 @@ Private family chat. Monorepo with Flask backend (REST + Socket.IO) and Flask fr
 daserver-chat/
 ├── backend/    # API + Socket.IO server, port 5000
 ├── frontend/   # Web UI, port 3000
-├── start.sh
-└── stop.sh
+├── start.sh    # run both in background (nohup)
+├── stop.sh     # stop background servers
+└── status.sh   # check if background servers are running
 ```
 
 ## 1. Setup (first time only)
@@ -38,10 +39,15 @@ cp .env.example .env
 deactivate
 ```
 
-## 2. Start the server
+## 2. Start the server (background)
+
+`start.sh` runs both servers in the background with `nohup`, so they keep
+running after you close the terminal. PIDs go in `.pids/`, output in `.logs/`.
 
 ```bash
 ./start.sh
+./status.sh   # check RUNNING / STOPPED
+tail -f .logs/backend.log .logs/frontend.log  # watch logs
 ```
 
 - Backend: http://localhost:5000
