@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Login — DaServer Chat{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+
+{% block body %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h1 class="auth-title">DaServer Chat</h1>
+        <p class="auth-subtitle">Sign in to continue</p>
+
+        {% if error %}
+        <div class="auth-error" role="alert">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('auth.login') }}" novalidate>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="{{ username | default('') }}" required autocomplete="username" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Sign in</button>
+        </form>
+
+        <p class="auth-footer">
+            Don't have an account? <a href="{{ url_for('auth.register') }}">Create account</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

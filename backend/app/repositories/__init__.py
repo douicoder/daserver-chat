@@ -1,0 +1,3 @@
+from app.repositories.user_repository import UserRepository
+from app.repositories.message_repository import MessageRepository
+from app.repositories.attachment_repository import AttachmentRepository

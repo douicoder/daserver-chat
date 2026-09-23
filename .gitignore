@@ -1,0 +1,16 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+.pytest_cache/
+venv/
+.venv/
+node_modules/
+.vscode/
+.idea/
+.logs/
+.pids/
+backend/storage/attachments/*
+!backend/storage/attachments/.gitkeep
